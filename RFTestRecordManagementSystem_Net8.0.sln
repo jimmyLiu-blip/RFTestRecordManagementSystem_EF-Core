@@ -1,0 +1,55 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36408.4 d17.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RFTestRecordManagementSystem_Net8.0", "RFTestRecordManagementSystem_Net8.0\RFTestRecordManagementSystem_Net8.0.csproj", "{5CF7B3DC-34E2-4D3B-8E84-D74F2FF27213}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RFTestRecordManagementSystem.Domain", "RFTestRecordManagementSystem.Domain\RFTestRecordManagementSystem.Domain.csproj", "{38BC4A6F-AB73-4FDE-B3A7-9E819758FC46}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RFTestRecordManagementSystem.Repository", "RFTestRecordManagementSystem.Repository\RFTestRecordManagementSystem.Repository.csproj", "{8F8D9A07-18FB-42F7-A4AC-B6E635121224}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RFTestRecordManagementSystem.Service", "RFTestRecordManagementSystem.Service\RFTestRecordManagementSystem.Service.csproj", "{C2408526-03F4-4004-9B86-8FCC4A7D4921}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RFTestRecordManagementSystem.Utilities", "RFTestRecordManagementSystem.Utilities\RFTestRecordManagementSystem.Utilities.csproj", "{46738BE5-E5BF-42A6-996A-3D4D5C0BA68C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RFTestRecordManagementSystem.Infrastructure", "RFTestRecordManagementSystem.Infrastructure\RFTestRecordManagementSystem.Infrastructure.csproj", "{4B6E6369-18ED-4D5B-A442-19BB0A5E75D1}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5CF7B3DC-34E2-4D3B-8E84-D74F2FF27213}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5CF7B3DC-34E2-4D3B-8E84-D74F2FF27213}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5CF7B3DC-34E2-4D3B-8E84-D74F2FF27213}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5CF7B3DC-34E2-4D3B-8E84-D74F2FF27213}.Release|Any CPU.Build.0 = Release|Any CPU
+		{38BC4A6F-AB73-4FDE-B3A7-9E819758FC46}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{38BC4A6F-AB73-4FDE-B3A7-9E819758FC46}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{38BC4A6F-AB73-4FDE-B3A7-9E819758FC46}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{38BC4A6F-AB73-4FDE-B3A7-9E819758FC46}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8F8D9A07-18FB-42F7-A4AC-B6E635121224}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8F8D9A07-18FB-42F7-A4AC-B6E635121224}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8F8D9A07-18FB-42F7-A4AC-B6E635121224}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8F8D9A07-18FB-42F7-A4AC-B6E635121224}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C2408526-03F4-4004-9B86-8FCC4A7D4921}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C2408526-03F4-4004-9B86-8FCC4A7D4921}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C2408526-03F4-4004-9B86-8FCC4A7D4921}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C2408526-03F4-4004-9B86-8FCC4A7D4921}.Release|Any CPU.Build.0 = Release|Any CPU
+		{46738BE5-E5BF-42A6-996A-3D4D5C0BA68C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{46738BE5-E5BF-42A6-996A-3D4D5C0BA68C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{46738BE5-E5BF-42A6-996A-3D4D5C0BA68C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{46738BE5-E5BF-42A6-996A-3D4D5C0BA68C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4B6E6369-18ED-4D5B-A442-19BB0A5E75D1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4B6E6369-18ED-4D5B-A442-19BB0A5E75D1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4B6E6369-18ED-4D5B-A442-19BB0A5E75D1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4B6E6369-18ED-4D5B-A442-19BB0A5E75D1}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C8DD711C-67D9-406C-83A2-876E018DCD73}
+	EndGlobalSection
+EndGlobal
