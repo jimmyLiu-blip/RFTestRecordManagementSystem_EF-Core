@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.14.36408.4 d17.14
+VisualStudioVersion = 17.14.36408.4
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RFTestRecordManagementSystem_Net8.0", "RFTestRecordManagementSystem_Net8.0\RFTestRecordManagementSystem_Net8.0.csproj", "{5CF7B3DC-34E2-4D3B-8E84-D74F2FF27213}"
 EndProject
@@ -14,6 +14,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RFTestRecordManagementSystem.Utilities", "RFTestRecordManagementSystem.Utilities\RFTestRecordManagementSystem.Utilities.csproj", "{46738BE5-E5BF-42A6-996A-3D4D5C0BA68C}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RFTestRecordManagementSystem.Infrastructure", "RFTestRecordManagementSystem.Infrastructure\RFTestRecordManagementSystem.Infrastructure.csproj", "{4B6E6369-18ED-4D5B-A442-19BB0A5E75D1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RFTestRecordManagementSystem.WinForms", "RFTestRecordManagementSystem.WinForms\RFTestRecordManagementSystem.WinForms.csproj", "{215F9BE7-3ED0-4B93-9A37-BC99EFE0312D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,6 +47,10 @@ Global
 		{4B6E6369-18ED-4D5B-A442-19BB0A5E75D1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4B6E6369-18ED-4D5B-A442-19BB0A5E75D1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4B6E6369-18ED-4D5B-A442-19BB0A5E75D1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{215F9BE7-3ED0-4B93-9A37-BC99EFE0312D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{215F9BE7-3ED0-4B93-9A37-BC99EFE0312D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{215F9BE7-3ED0-4B93-9A37-BC99EFE0312D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{215F9BE7-3ED0-4B93-9A37-BC99EFE0312D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
