@@ -22,10 +22,17 @@ namespace RFTestRecordManagementSystem
     {
         private static readonly bool UseJson = false;
 
+        private static readonly bool UseDapper = false;
+
         private static readonly bool UseEFCore = true;
 
-        private static readonly IRFTestRecordRepository _repository = UseJson ?
-            (IRFTestRecordRepository)new JsonRFTestRecordRepository() : new DapperRFTestRecordRepository();
+        // 如果 UseJson = true → 使用 Json 版本
+        // 否則如果 UseDapper = true → 使用 Dapper 版本
+        // 否則 → 使用 EF Core 版本
+        private static readonly IRFTestRecordRepository _repository =
+            UseJson ? new JsonRFTestRecordRepository() :
+            UseDapper ? new DapperRFTestRecordRepository() :
+            new EfCoreRFTestRecordRepository();
 
         private static readonly IRFTestRecordService _service = new RFTestRecordService(_repository);
 
