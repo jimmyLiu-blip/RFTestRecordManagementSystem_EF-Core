@@ -29,7 +29,7 @@ namespace RFTestRecordManagementSystem.WinForms
             // 設定全域主題樣式（建議）
             BonusSkins.Register(); // 註冊額外的主題
             SkinManager.EnableFormSkins(); // 啟用 Skin 支援
-            UserLookAndFeel.Default.SetSkinStyle("Office 2019 Colorful");
+            UserLookAndFeel.Default.SetSkinStyle("The Bezier");
             // 可選其他主題："Visual Studio 2013 Blue", "The Bezier", "DevExpress Style"
 
             // 2. 啟動 WinForm 主畫面

@@ -30,4 +30,10 @@
     </PackageReference>
   </ItemGroup>
 
+  <ItemGroup>
+    <Reference Include="DevExpress.BonusSkins.v25.1">
+      <HintPath>..\..\Backup\DXApplication1\DXApplication1\bin\Debug\net8.0-windows\DevExpress.BonusSkins.v25.1.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
 </Project>

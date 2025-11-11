@@ -46,7 +46,7 @@
             gridControl1.Size = new System.Drawing.Size(1029, 366);
             gridControl1.TabIndex = 0;
             gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] { gridView1 });
-            gridControl1.Click += gridControl1_Click;
+            gridControl1.Click += gridControl1_Click_1;
             // 
             // gridView1
             // 
