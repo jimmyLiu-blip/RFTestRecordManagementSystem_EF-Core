@@ -87,6 +87,8 @@ namespace RFTestRecordManagementSystem_Service
             _repository.UpdateRecord(record);
         }
 
+        // 目前使用軟刪除，避免真刪除
+        /*
         public void DeleteRecord(int recordId)
         {
             if (recordId <= 0)
@@ -103,6 +105,7 @@ namespace RFTestRecordManagementSystem_Service
 
             _repository.DeleteRecord(recordId);
         }
+        */
 
         public RFTestRecord? GetRecordById(int recordId)
         {
@@ -141,6 +144,30 @@ namespace RFTestRecordManagementSystem_Service
             }
 
             return records;
+        }
+
+        public void SoftDeleteRecord(int RecordId)
+        {
+            if (RecordId <= 0)
+                throw new ArgumentOutOfRangeException(nameof(RecordId), "紀錄編號必須 > 0");
+
+            var record = _repository.GetRecordById(RecordId);
+            if (record == null)
+                throw new InvalidOperationException("找不到 RecordId = {recordId} 的紀錄");
+
+            _repository.SoftDeleteRecord(RecordId);
+        }
+
+        public void ArchiveRecord(int RecordId)
+        { 
+            if (RecordId <= 0)
+                throw new ArgumentOutOfRangeException(nameof(RecordId), "紀錄編號必須 > 0");
+
+            var record = _repository.GetRecordById(RecordId);
+            if (record == null)
+                throw new InvalidOperationException("找不到 RecordId = {recordId} 的紀錄");
+
+            _repository.ArchiveRecord(RecordId);
         }
     }
 }

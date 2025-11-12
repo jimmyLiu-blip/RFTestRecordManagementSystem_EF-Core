@@ -46,8 +46,15 @@ namespace RFTestRecordManagementSystem.Repository
 
             _context.SaveChanges();
         }
+        public void Update(RFTestRecord record)
+        {
+            _context.RFTestRecords.Update(record);
+            _context.SaveChanges();
+        }
 
-        public void DeleteRecord(int recordId)
+        // ⚠️ 這是「真刪除」資料庫資料，通常不建議一般使用。
+        // 建議使用 SoftDeleteRecord(int id) 來進行邏輯刪除。
+        /*public void DeleteRecord(int recordId)
         {
             var record = _context.RFTestRecords.Find(recordId);
             if ( record == null)
@@ -57,7 +64,7 @@ namespace RFTestRecordManagementSystem.Repository
 
             _context.RFTestRecords.Remove(record);
             _context.SaveChanges();
-        }
+        }*/
 
         public RFTestRecord? GetRecordById(int recordId)
         {
@@ -66,7 +73,9 @@ namespace RFTestRecordManagementSystem.Repository
 
         public List<RFTestRecord> GetAllRecords()
         { 
-            return _context.RFTestRecords.ToList();
+            return _context.RFTestRecords
+                .Where(r => !r.IsDeleted && !r.IsArchived)
+                .ToList();
         }
 
         public List<RFTestRecord> SearchRecords(string regulation, string radioTechnology)
@@ -95,6 +104,25 @@ namespace RFTestRecordManagementSystem.Repository
             }
 
             return records;
+        }
+
+        public void SoftDeleteRecord(int recordId)
+        { 
+            var record = _context.RFTestRecords.FirstOrDefault(r =>r.RecordId == recordId);
+            if (record == null)
+                throw new InvalidOperationException($"刪除失敗，找不到 Record = {recordId}");
+
+            record.IsDeleted = true;
+            _context.SaveChanges();
+        }
+        public void ArchiveRecord(int recordId)
+        {
+            var record = _context.RFTestRecords.FirstOrDefault(r => r.RecordId == recordId);
+            if (record == null)
+                throw new InvalidOperationException($"封存失敗，找不到 RecordId = {recordId}");
+
+            record.IsArchived = true;
+            _context.SaveChanges();
         }
     }
 }

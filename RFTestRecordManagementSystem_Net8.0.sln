@@ -17,6 +17,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RFTestRecordManagementSyste
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RFTestRecordManagementSystem.WinForms", "RFTestRecordManagementSystem.WinForms\RFTestRecordManagementSystem.WinForms.csproj", "{215F9BE7-3ED0-4B93-9A37-BC99EFE0312D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RFTestRecordManagementSystem.WebAPI", "RFTestRecordManagementSystem.WebAPI\RFTestRecordManagementSystem.WebAPI.csproj", "{451C3576-2DED-4205-BCA9-D5C5CEBA4921}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -51,6 +53,10 @@ Global
 		{215F9BE7-3ED0-4B93-9A37-BC99EFE0312D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{215F9BE7-3ED0-4B93-9A37-BC99EFE0312D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{215F9BE7-3ED0-4B93-9A37-BC99EFE0312D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{451C3576-2DED-4205-BCA9-D5C5CEBA4921}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{451C3576-2DED-4205-BCA9-D5C5CEBA4921}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{451C3576-2DED-4205-BCA9-D5C5CEBA4921}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{451C3576-2DED-4205-BCA9-D5C5CEBA4921}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

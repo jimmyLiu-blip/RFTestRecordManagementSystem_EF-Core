@@ -34,6 +34,7 @@
             btnEdit = new DevExpress.XtraEditors.SimpleButton();
             btnDelete = new DevExpress.XtraEditors.SimpleButton();
             btnRefresh = new DevExpress.XtraEditors.SimpleButton();
+            btnArchive = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)gridControl1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)gridView1).BeginInit();
             SuspendLayout();
@@ -58,7 +59,7 @@
             btnAdd.Appearance.Font = new System.Drawing.Font("Tahoma", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
             btnAdd.Appearance.Options.UseFont = true;
             btnAdd.Cursor = System.Windows.Forms.Cursors.Cross;
-            btnAdd.Location = new System.Drawing.Point(37, 12);
+            btnAdd.Location = new System.Drawing.Point(30, 12);
             btnAdd.Name = "btnAdd";
             btnAdd.Size = new System.Drawing.Size(168, 51);
             btnAdd.TabIndex = 1;
@@ -69,7 +70,7 @@
             // 
             btnEdit.Appearance.Font = new System.Drawing.Font("Tahoma", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
             btnEdit.Appearance.Options.UseFont = true;
-            btnEdit.Location = new System.Drawing.Point(243, 12);
+            btnEdit.Location = new System.Drawing.Point(237, 12);
             btnEdit.Name = "btnEdit";
             btnEdit.Size = new System.Drawing.Size(168, 51);
             btnEdit.TabIndex = 2;
@@ -80,7 +81,7 @@
             // 
             btnDelete.Appearance.Font = new System.Drawing.Font("Tahoma", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
             btnDelete.Appearance.Options.UseFont = true;
-            btnDelete.Location = new System.Drawing.Point(450, 12);
+            btnDelete.Location = new System.Drawing.Point(443, 12);
             btnDelete.Name = "btnDelete";
             btnDelete.Size = new System.Drawing.Size(168, 51);
             btnDelete.TabIndex = 3;
@@ -91,18 +92,30 @@
             // 
             btnRefresh.Appearance.Font = new System.Drawing.Font("Tahoma", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
             btnRefresh.Appearance.Options.UseFont = true;
-            btnRefresh.Location = new System.Drawing.Point(657, 12);
+            btnRefresh.Location = new System.Drawing.Point(858, 12);
             btnRefresh.Name = "btnRefresh";
             btnRefresh.Size = new System.Drawing.Size(168, 51);
             btnRefresh.TabIndex = 4;
             btnRefresh.Text = "重新整理";
             btnRefresh.Click += btnRefresh_Click;
             // 
+            // btnArchive
+            // 
+            btnArchive.Appearance.Font = new System.Drawing.Font("Tahoma", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
+            btnArchive.Appearance.Options.UseFont = true;
+            btnArchive.Location = new System.Drawing.Point(653, 12);
+            btnArchive.Name = "btnArchive";
+            btnArchive.Size = new System.Drawing.Size(168, 51);
+            btnArchive.TabIndex = 5;
+            btnArchive.Text = "封存紀錄";
+            btnArchive.Click += btnArchive_Click;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(10F, 22F);
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             ClientSize = new System.Drawing.Size(1053, 470);
+            Controls.Add(btnArchive);
             Controls.Add(btnRefresh);
             Controls.Add(btnDelete);
             Controls.Add(btnEdit);
@@ -126,6 +139,7 @@
         private DevExpress.XtraEditors.SimpleButton btnEdit;
         private DevExpress.XtraEditors.SimpleButton btnDelete;
         private DevExpress.XtraEditors.SimpleButton btnRefresh;
+        private DevExpress.XtraEditors.SimpleButton btnArchive;
     }
 }
 

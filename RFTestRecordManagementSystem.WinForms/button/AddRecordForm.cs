@@ -2,18 +2,21 @@
 using RFTestRecordManagementSystem.Repository;
 using RFTestRecordManagementSystem.Service;
 using RFTestRecordManagementSystem_Service;
+using RFTestRecordManagementSystem.Domain;
 using System;
+using System.Net.Http;
 using System.Windows.Forms;
+using System.Net.Http.Json;
 
 namespace RFTestRecordManagementSystem.WinForms
 {
     public partial class AddRecordForm : XtraForm
     {
-        private readonly IRFTestRecordService _service;
+        private readonly HttpClient _httpClient;
         public AddRecordForm()
         {
             InitializeComponent();
-            _service = new RFTestRecordService(new EfCoreRFTestRecordRepository());
+            _httpClient = new HttpClient { BaseAddress = new Uri("http://localhost:5180/") };
         }
 
         private void AddRecordForm_Load(object sender, EventArgs e)
@@ -61,18 +64,22 @@ namespace RFTestRecordManagementSystem.WinForms
 
         }
 
-        private void simpleButton1_Click(object sender, EventArgs e)
+        private async void simpleButton1_Click(object sender, EventArgs e)
         {
             try
             {
-                string regulation = txtRegulation.Text;
-                string radioTechnology = txtTechnology.Text;
-                string band = txtBand.Text;
-                decimal power = spinPower.Value;
-                string result = txtResult.Text;
-                DateTime testDate = DateTime.Now.Date;
+                var newRecord = new RFTestRecord
+                {
+                    Regulation = txtRegulation.Text.Trim(),
+                    RadioTechnology = txtTechnology.Text.Trim(),
+                    Band = txtBand.Text.Trim(),
+                    PowerDbm = spinPower.Value,
+                    Result = txtResult.Text.Trim(),
+                    TestDate = DateTime.Now.Date
+                };
 
-                _service.AddRecord(regulation, radioTechnology, band, power, result, testDate);
+                var response = await _httpClient.PostAsJsonAsync("api/RFTestRecords", newRecord);
+                response.EnsureSuccessStatusCode();
 
                 XtraMessageBox.Show("新增成功！");
                 this.DialogResult = DialogResult.OK;

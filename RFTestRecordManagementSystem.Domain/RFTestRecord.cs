@@ -16,6 +16,10 @@
 
         public DateTime TestDate { get; set; }
 
+        public bool IsDeleted { get; set; } = false;
+
+        public bool IsArchived { get; set; } = false;
+
         public RFTestRecord() { }
 
         public RFTestRecord(string regulation, string radioTechnology, string band, decimal powerDbm, string result, DateTime testDate)

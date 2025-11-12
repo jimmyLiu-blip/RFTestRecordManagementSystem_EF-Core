@@ -204,5 +204,14 @@ namespace RFTestRecordManagementSystem.Repository
                 throw new InvalidOperationException($"查詢資料發生錯誤，請檢查JsonDB_error_log.txt", ex);
             }
         }
+
+        public void SoftDeleteRecord(int RecordId)
+        {
+            throw new NotSupportedException("此 Repository 不支援軟刪除功能");
+        }
+        public void ArchiveRecord(int RecordId)
+        {
+            throw new NotSupportedException("此 Repository 不支援封存功能");
+        }
     }
 }

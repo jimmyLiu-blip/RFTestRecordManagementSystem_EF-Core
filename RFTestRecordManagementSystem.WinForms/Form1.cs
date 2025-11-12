@@ -1,16 +1,13 @@
 ﻿using DevExpress.XtraEditors;
 using DevExpress.XtraGrid.Views.Grid;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
-using RFTestRecordManagementSystem.Repository;
-using RFTestRecordManagementSystem_Service;
-using RFTestRecordManagementSystem.Service;
 using RFTestRecordManagementSystem.Domain;
-using RFTestRecordManagementSystem.Infrastructure;
 using System;
-using System.Linq;
 using System.Windows.Forms;
 using RFTestRecordManagementSystem.WinForms.button;
+using System.Net.Http;
+using System.Net.Http.Json;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace RFTestRecordManagementSystem.WinForms
 {
@@ -18,14 +15,24 @@ namespace RFTestRecordManagementSystem.WinForms
     {
         // gridControl：整張表格(ex：電視機)
         // gridView：表格的主畫面邏輯層(ex：電視機螢幕上的顯示設定)
-        private readonly IRFTestRecordService _service;
+        private readonly HttpClient _httpClient;
         private readonly GridView _gridView;
 
         public Form1()
         {
             InitializeComponent();
 
-            _service = new RFTestRecordService(new EfCoreRFTestRecordRepository());
+            // 將認證憑證關閉
+            var handler = new HttpClientHandler
+            {
+                ServerCertificateCustomValidationCallback = (message, cert, chain, errors) => true
+            };
+
+            // 初始化 HttpClient，設定 API 伺服器位置
+            _httpClient = new HttpClient(handler)
+            {
+                BaseAddress = new Uri("http://localhost:5180/") // ⚠️改成你 Swagger 顯示的 URL
+            };
 
             _gridView = gridControl1.MainView as GridView;
 
@@ -37,16 +44,33 @@ namespace RFTestRecordManagementSystem.WinForms
             // this.Load += Form1_Load; 手動創立事件
         }
 
-        private void Form1_Load(object sender, EventArgs e)
+        private async void Form1_Load(object sender, EventArgs e)
         {
-            LoadRecords();
+            await LoadRecords();
+
+            // 樣式 (封存變灰)
+            _gridView.RowStyle += (s, e) =>
+            {
+                var view = s as GridView;
+                var record = view.GetRow(e.RowHandle) as RFTestRecord;
+                if (record == null) return;
+
+                if (record.IsArchived)
+                {
+                    e.Appearance.BackColor = System.Drawing.Color.LightGray;
+                    e.Appearance.ForeColor = System.Drawing.Color.DarkGray;
+                }
+            };
         }
 
-        private void LoadRecords()
+        private async Task LoadRecords()
         {
             try
             {
-                var records = _service.GetAllRecords();
+                var response = await _httpClient.GetAsync("api/RFTestRecords");
+                response.EnsureSuccessStatusCode(); // 如果不是 200 會丟例外
+
+                var records = await response.Content.ReadFromJsonAsync<List<RFTestRecord>>();
                 gridControl1.DataSource = records; // 把 records 放進 gridControl1.DataSource，「DataSource」的意思就是「資料來源」。
 
                 _gridView.PopulateColumns();       // 會根據 DataSource 的屬性自動產生欄位，例如 RecordId, Regulation, Band, Result, TestDate → 都會自動變成表格欄位。
@@ -58,7 +82,7 @@ namespace RFTestRecordManagementSystem.WinForms
             }
             catch (Exception ex)
             {
-                XtraMessageBox.Show($"資料載入失敗：{ex.Message}", "錯誤", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                XtraMessageBox.Show($"讀取 API 資料失敗：{ex.Message}", "錯誤", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -71,18 +95,18 @@ namespace RFTestRecordManagementSystem.WinForms
 
         }
 
-        private void btnAdd_Click(object sender, EventArgs e)
+        private async void btnAdd_Click(object sender, EventArgs e)
         {
             using (var addForm = new AddRecordForm())
             {
                 if (addForm.ShowDialog() == DialogResult.OK)
                 {
-                    LoadRecords();
+                    await LoadRecords();
                 }
             }
         }
 
-        private void btnEdit_Click(object sender, EventArgs e)
+        private async void btnEdit_Click(object sender, EventArgs e)
         {
             // _gridView.GetFocusedRow()：可以直接取得使用者目前選取的那一筆物件
             // selectedRecord.RecordId：就是資料庫裡的那筆唯一編號，系統可以藉這個 ID 找到資料並更新。
@@ -92,29 +116,93 @@ namespace RFTestRecordManagementSystem.WinForms
                 {
                     if (editForm.ShowDialog() == DialogResult.OK)
                     {
-                        LoadRecords();
+                        await LoadRecords();
                     }
                 }
             }
             else
-            { 
+            {
                 XtraMessageBox.Show("請先選擇要修改的紀錄。");
             }
         }
 
-        private void btnDelete_Click(object sender, EventArgs e)
+        private async void btnDelete_Click(object sender, EventArgs e)
         {
-            XtraMessageBox.Show("刪除功能尚未實作");
+            var selectedRow = _gridView.GetFocusedRow();
+            if (selectedRow == null)
+            {
+                XtraMessageBox.Show("請先選取要刪除的紀錄!");
+                return;
+            }
+
+            var record = (RFTestRecord)selectedRow;
+
+            var confirm = XtraMessageBox.Show(
+                $"確認要刪除測試紀錄：{record.RecordId} (法規：{record.Regulation}，頻段：{record.Band}）嗎?", "確認刪除",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Warning);
+
+            if (confirm != DialogResult.Yes)
+                return;
+
+            try
+            {
+                var request = new HttpRequestMessage(HttpMethod.Put, $"api/RFTestRecords/softdelete/{record.RecordId}")
+                {
+                    Content = new StringContent("{}", System.Text.Encoding.UTF8, "application/json")
+                };
+
+                var response = await _httpClient.SendAsync(request);
+                response.EnsureSuccessStatusCode();
+                
+                await LoadRecords();
+                XtraMessageBox.Show("刪除成功!");
+            }
+            catch (Exception ex)
+            {
+                XtraMessageBox.Show($"刪除失敗：{ex.Message}", "錯誤", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
-        private void btnRefresh_Click(object sender, EventArgs e)
+        private async void btnRefresh_Click(object sender, EventArgs e)
         {
-            LoadRecords();
+            await LoadRecords();
         }
 
         private void gridControl1_Click_1(object sender, EventArgs e)
         {
 
+        }
+
+        private async void btnArchive_Click(object sender, EventArgs e)
+        {
+            var selectRow = _gridView.GetFocusedRow() as RFTestRecord;
+            if (selectRow == null)
+            {
+                XtraMessageBox.Show("請先選擇要封存的紀錄");
+                return;
+            }
+
+            var confirm = XtraMessageBox.Show(
+                $"確認要封存紀錄:{selectRow.RecordId}(法規：{selectRow.Regulation}，頻段：{selectRow.Band}嗎?)",
+                "確認封存",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question);
+
+            if (confirm != DialogResult.Yes) return;
+
+            try
+            {
+                var response = await _httpClient.PutAsync($"api/RFTestRecords/archive/{selectRow.RecordId}", null);
+                response.EnsureSuccessStatusCode();
+
+                await LoadRecords();
+                XtraMessageBox.Show("紀錄已封存!", "成功", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception ex)
+            {
+                XtraMessageBox.Show($"封存失敗：{ex.Message}", "錯誤", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

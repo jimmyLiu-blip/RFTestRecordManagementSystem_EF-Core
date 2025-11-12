@@ -50,55 +50,55 @@
             // 
             // lblRegulation
             // 
-            lblRegulation.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
+            lblRegulation.Appearance.Font = new System.Drawing.Font("Tahoma", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
             lblRegulation.Appearance.Options.UseFont = true;
-            lblRegulation.Location = new System.Drawing.Point(199, 107);
+            lblRegulation.Location = new System.Drawing.Point(150, 40);
             lblRegulation.Name = "lblRegulation";
-            lblRegulation.Size = new System.Drawing.Size(135, 29);
+            lblRegulation.Size = new System.Drawing.Size(182, 39);
             lblRegulation.TabIndex = 0;
             lblRegulation.Text = "Regulation：";
             lblRegulation.Click += lblRegulation_Click;
             // 
             // lblTechnology
             // 
-            lblTechnology.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
+            lblTechnology.Appearance.Font = new System.Drawing.Font("Tahoma", 16F);
             lblTechnology.Appearance.Options.UseFont = true;
-            lblTechnology.Location = new System.Drawing.Point(212, 152);
+            lblTechnology.Location = new System.Drawing.Point(170, 97);
             lblTechnology.Name = "lblTechnology";
-            lblTechnology.Size = new System.Drawing.Size(120, 29);
+            lblTechnology.Size = new System.Drawing.Size(160, 39);
             lblTechnology.TabIndex = 1;
             lblTechnology.Text = "無線技術：";
             lblTechnology.Click += lblTechnology_Click;
             // 
             // lblBand
             // 
-            lblBand.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
+            lblBand.Appearance.Font = new System.Drawing.Font("Tahoma", 16F);
             lblBand.Appearance.Options.UseFont = true;
-            lblBand.Location = new System.Drawing.Point(208, 203);
+            lblBand.Location = new System.Drawing.Point(164, 146);
             lblBand.Name = "lblBand";
-            lblBand.Size = new System.Drawing.Size(125, 29);
+            lblBand.Size = new System.Drawing.Size(168, 39);
             lblBand.TabIndex = 2;
             lblBand.Text = "測試Band：";
             lblBand.Click += lblBand_Click;
             // 
             // lblPower
             // 
-            lblPower.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
+            lblPower.Appearance.Font = new System.Drawing.Font("Tahoma", 16F);
             lblPower.Appearance.Options.UseFont = true;
-            lblPower.Location = new System.Drawing.Point(213, 252);
+            lblPower.Location = new System.Drawing.Point(172, 193);
             lblPower.Name = "lblPower";
-            lblPower.Size = new System.Drawing.Size(120, 29);
+            lblPower.Size = new System.Drawing.Size(160, 39);
             lblPower.TabIndex = 3;
             lblPower.Text = "測試功率：";
             lblPower.Click += lblPower_Click;
             // 
             // lblResult
             // 
-            lblResult.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
+            lblResult.Appearance.Font = new System.Drawing.Font("Tahoma", 16F);
             lblResult.Appearance.Options.UseFont = true;
-            lblResult.Location = new System.Drawing.Point(213, 302);
+            lblResult.Location = new System.Drawing.Point(172, 240);
             lblResult.Name = "lblResult";
-            lblResult.Size = new System.Drawing.Size(120, 29);
+            lblResult.Size = new System.Drawing.Size(160, 39);
             lblResult.TabIndex = 4;
             lblResult.Text = "測試結果：";
             lblResult.Click += lblResult_Click;
@@ -110,7 +110,7 @@
             labelControl1.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.Horizontal;
             labelControl1.LineStyle = System.Drawing.Drawing2D.DashStyle.Dash;
             labelControl1.LineVisible = true;
-            labelControl1.Location = new System.Drawing.Point(60, 57);
+            labelControl1.Location = new System.Drawing.Point(12, 152);
             labelControl1.Name = "labelControl1";
             labelControl1.Size = new System.Drawing.Size(128, 39);
             labelControl1.TabIndex = 5;
@@ -119,40 +119,50 @@
             // 
             // txtRegulation
             // 
-            txtRegulation.Location = new System.Drawing.Point(352, 108);
+            txtRegulation.Location = new System.Drawing.Point(321, 43);
             txtRegulation.Name = "txtRegulation";
-            txtRegulation.Size = new System.Drawing.Size(205, 28);
+            txtRegulation.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
+            txtRegulation.Properties.Appearance.Options.UseFont = true;
+            txtRegulation.Size = new System.Drawing.Size(205, 36);
             txtRegulation.TabIndex = 6;
             txtRegulation.EditValueChanged += textEdit1_EditValueChanged;
             // 
             // txtTechnology
             // 
-            txtTechnology.Location = new System.Drawing.Point(352, 155);
+            txtTechnology.Location = new System.Drawing.Point(321, 97);
             txtTechnology.Name = "txtTechnology";
-            txtTechnology.Size = new System.Drawing.Size(205, 28);
+            txtTechnology.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F);
+            txtTechnology.Properties.Appearance.Options.UseFont = true;
+            txtTechnology.Size = new System.Drawing.Size(205, 36);
             txtTechnology.TabIndex = 7;
             // 
             // txtBand
             // 
-            txtBand.Location = new System.Drawing.Point(352, 204);
+            txtBand.Location = new System.Drawing.Point(321, 149);
             txtBand.Name = "txtBand";
-            txtBand.Size = new System.Drawing.Size(205, 28);
+            txtBand.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F);
+            txtBand.Properties.Appearance.Options.UseFont = true;
+            txtBand.Size = new System.Drawing.Size(205, 36);
             txtBand.TabIndex = 8;
             // 
             // txtResult
             // 
-            txtResult.Location = new System.Drawing.Point(352, 305);
+            txtResult.Location = new System.Drawing.Point(321, 243);
             txtResult.Name = "txtResult";
-            txtResult.Size = new System.Drawing.Size(205, 28);
+            txtResult.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F);
+            txtResult.Properties.Appearance.Options.UseFont = true;
+            txtResult.Size = new System.Drawing.Size(205, 36);
             txtResult.TabIndex = 9;
             // 
             // spinPower
             // 
             spinPower.EditValue = new decimal(new int[] { 0, 0, 0, 0 });
-            spinPower.Location = new System.Drawing.Point(352, 254);
+            spinPower.Location = new System.Drawing.Point(321, 196);
             spinPower.Name = "spinPower";
+            spinPower.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F);
+            spinPower.Properties.Appearance.Options.UseFont = true;
             spinPower.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] { new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo) });
-            spinPower.Size = new System.Drawing.Size(205, 28);
+            spinPower.Size = new System.Drawing.Size(205, 36);
             spinPower.TabIndex = 10;
             spinPower.EditValueChanged += spinPower_EditValueChanged;
             // 
@@ -162,7 +172,7 @@
             simpleButton1.Appearance.ForeColor = System.Drawing.Color.FromArgb(64, 0, 64);
             simpleButton1.Appearance.Options.UseFont = true;
             simpleButton1.Appearance.Options.UseForeColor = true;
-            simpleButton1.Location = new System.Drawing.Point(179, 358);
+            simpleButton1.Location = new System.Drawing.Point(139, 309);
             simpleButton1.Name = "simpleButton1";
             simpleButton1.Size = new System.Drawing.Size(153, 49);
             simpleButton1.TabIndex = 11;
@@ -175,7 +185,7 @@
             simpleButton2.Appearance.ForeColor = System.Drawing.Color.FromArgb(64, 0, 64);
             simpleButton2.Appearance.Options.UseFont = true;
             simpleButton2.Appearance.Options.UseForeColor = true;
-            simpleButton2.Location = new System.Drawing.Point(404, 358);
+            simpleButton2.Location = new System.Drawing.Point(406, 309);
             simpleButton2.Name = "simpleButton2";
             simpleButton2.Size = new System.Drawing.Size(153, 49);
             simpleButton2.TabIndex = 12;

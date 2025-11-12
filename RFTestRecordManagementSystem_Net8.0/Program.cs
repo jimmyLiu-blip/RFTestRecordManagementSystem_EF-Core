@@ -1,12 +1,9 @@
-﻿using Microsoft.Extensions.Configuration;
-using Microsoft.SqlServer.Server;
-using RFTestRecordManagementSystem.Domain;
+﻿using RFTestRecordManagementSystem.Domain;
 using RFTestRecordManagementSystem.Infrastructure;
 using RFTestRecordManagementSystem.Repository;
 using RFTestRecordManagementSystem.Service;
 using RFTestRecordManagementSystem.Utilities;
 using RFTestRecordManagementSystem_Service;
-using System.Windows.Forms;
 
 namespace RFTestRecordManagementSystem
 {
@@ -378,7 +375,7 @@ namespace RFTestRecordManagementSystem
                     return;
                 }
 
-                _service.DeleteRecord(recordId);
+                // _service.DeleteRecord(recordId);
 
                 Console.ForegroundColor = ConsoleColor.Green;
                 Console.WriteLine($"\n成功刪除測試紀錄，RecordId為{recordId}");

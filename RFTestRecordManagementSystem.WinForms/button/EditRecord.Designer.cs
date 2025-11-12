@@ -51,7 +51,7 @@
             // 
             lblRegulation.Appearance.Font = new System.Drawing.Font("Tahoma", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
             lblRegulation.Appearance.Options.UseFont = true;
-            lblRegulation.Location = new System.Drawing.Point(165, 42);
+            lblRegulation.Location = new System.Drawing.Point(150, 40);
             lblRegulation.Name = "lblRegulation";
             lblRegulation.Size = new System.Drawing.Size(182, 39);
             lblRegulation.TabIndex = 0;
@@ -62,7 +62,7 @@
             // 
             lblTechnology.Appearance.Font = new System.Drawing.Font("Tahoma", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
             lblTechnology.Appearance.Options.UseFont = true;
-            lblTechnology.Location = new System.Drawing.Point(187, 101);
+            lblTechnology.Location = new System.Drawing.Point(170, 97);
             lblTechnology.Name = "lblTechnology";
             lblTechnology.Size = new System.Drawing.Size(160, 39);
             lblTechnology.TabIndex = 1;
@@ -72,7 +72,7 @@
             // 
             lblBand.Appearance.Font = new System.Drawing.Font("Tahoma", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
             lblBand.Appearance.Options.UseFont = true;
-            lblBand.Location = new System.Drawing.Point(169, 157);
+            lblBand.Location = new System.Drawing.Point(154, 150);
             lblBand.Name = "lblBand";
             lblBand.Size = new System.Drawing.Size(178, 39);
             lblBand.TabIndex = 2;
@@ -82,7 +82,7 @@
             // 
             lblPower.Appearance.Font = new System.Drawing.Font("Tahoma", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
             lblPower.Appearance.Options.UseFont = true;
-            lblPower.Location = new System.Drawing.Point(187, 213);
+            lblPower.Location = new System.Drawing.Point(170, 204);
             lblPower.Name = "lblPower";
             lblPower.Size = new System.Drawing.Size(160, 39);
             lblPower.TabIndex = 3;
@@ -92,7 +92,7 @@
             // 
             lblResult.Appearance.Font = new System.Drawing.Font("Tahoma", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
             lblResult.Appearance.Options.UseFont = true;
-            lblResult.Location = new System.Drawing.Point(187, 274);
+            lblResult.Location = new System.Drawing.Point(170, 262);
             lblResult.Name = "lblResult";
             lblResult.Size = new System.Drawing.Size(160, 39);
             lblResult.TabIndex = 4;
@@ -100,53 +100,54 @@
             // 
             // txtRegulation
             // 
-            txtRegulation.Location = new System.Drawing.Point(353, 45);
+            txtRegulation.Location = new System.Drawing.Point(321, 43);
             txtRegulation.Name = "txtRegulation";
             txtRegulation.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
             txtRegulation.Properties.Appearance.Options.UseFont = true;
-            txtRegulation.Size = new System.Drawing.Size(225, 36);
+            txtRegulation.Size = new System.Drawing.Size(205, 36);
             txtRegulation.TabIndex = 5;
             txtRegulation.Click += txtRegulation_Click;
             // 
             // txtTechnology
             // 
-            txtTechnology.Location = new System.Drawing.Point(353, 104);
+            txtTechnology.Location = new System.Drawing.Point(321, 99);
             txtTechnology.Name = "txtTechnology";
             txtTechnology.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
             txtTechnology.Properties.Appearance.Options.UseFont = true;
-            txtTechnology.Size = new System.Drawing.Size(225, 36);
+            txtTechnology.Size = new System.Drawing.Size(205, 36);
             txtTechnology.TabIndex = 6;
             txtTechnology.Click += txtTechnology_Click;
             // 
             // txtBand
             // 
-            txtBand.Location = new System.Drawing.Point(353, 160);
+            txtBand.Location = new System.Drawing.Point(321, 153);
             txtBand.Name = "txtBand";
             txtBand.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
             txtBand.Properties.Appearance.Options.UseFont = true;
-            txtBand.Size = new System.Drawing.Size(225, 36);
+            txtBand.Size = new System.Drawing.Size(205, 36);
             txtBand.TabIndex = 7;
             txtBand.Click += txtBand_Click;
             // 
             // txtResult
             // 
-            txtResult.Location = new System.Drawing.Point(353, 277);
+            txtResult.Location = new System.Drawing.Point(321, 265);
             txtResult.Name = "txtResult";
             txtResult.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
             txtResult.Properties.Appearance.Options.UseFont = true;
-            txtResult.Size = new System.Drawing.Size(225, 36);
+            txtResult.Size = new System.Drawing.Size(205, 36);
             txtResult.TabIndex = 8;
+            txtResult.EditValueChanged += txtResult_EditValueChanged;
             txtResult.Click += txtResult_Click;
             // 
             // spinPower
             // 
             spinPower.EditValue = new decimal(new int[] { 0, 0, 0, 0 });
-            spinPower.Location = new System.Drawing.Point(353, 216);
+            spinPower.Location = new System.Drawing.Point(321, 207);
             spinPower.Name = "spinPower";
             spinPower.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
             spinPower.Properties.Appearance.Options.UseFont = true;
             spinPower.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] { new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo) });
-            spinPower.Size = new System.Drawing.Size(225, 36);
+            spinPower.Size = new System.Drawing.Size(205, 36);
             spinPower.TabIndex = 10;
             spinPower.Click += spinPower_Click;
             // 
@@ -154,9 +155,9 @@
             // 
             btnConfirm.Appearance.Font = new System.Drawing.Font("Tahoma", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
             btnConfirm.Appearance.Options.UseFont = true;
-            btnConfirm.Location = new System.Drawing.Point(165, 355);
+            btnConfirm.Location = new System.Drawing.Point(150, 340);
             btnConfirm.Name = "btnConfirm";
-            btnConfirm.Size = new System.Drawing.Size(168, 51);
+            btnConfirm.Size = new System.Drawing.Size(153, 49);
             btnConfirm.TabIndex = 11;
             btnConfirm.Text = "確認修改";
             btnConfirm.Click += btnConfirm_Click;
@@ -165,18 +166,18 @@
             // 
             btnCancel.Appearance.Font = new System.Drawing.Font("Tahoma", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
             btnCancel.Appearance.Options.UseFont = true;
-            btnCancel.Location = new System.Drawing.Point(410, 355);
+            btnCancel.Location = new System.Drawing.Point(373, 340);
             btnCancel.Name = "btnCancel";
-            btnCancel.Size = new System.Drawing.Size(168, 51);
+            btnCancel.Size = new System.Drawing.Size(153, 49);
             btnCancel.TabIndex = 12;
             btnCancel.Text = "取消";
             btnCancel.Click += btnCancel_Click;
             // 
             // EditRecord
             // 
-            AutoScaleDimensions = new System.Drawing.SizeF(11F, 23F);
+            AutoScaleDimensions = new System.Drawing.SizeF(10F, 22F);
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            ClientSize = new System.Drawing.Size(800, 450);
+            ClientSize = new System.Drawing.Size(727, 430);
             Controls.Add(btnCancel);
             Controls.Add(btnConfirm);
             Controls.Add(spinPower);
